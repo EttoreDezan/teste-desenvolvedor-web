@@ -1,0 +1,50 @@
+<?php
+
+
+echo "
+<html lang=\"pt-BR\">
+
+<div class='container mt-5'> 
+		<h1 class='text-center'>Lista de Pessoas</h1>";
+
+echo "<table class='table table-hover mt-4'>";
+
+echo
+"<tr>
+            <th>Nome Completo</th> 
+            <th>Telefone</th> 
+            <th>CPF</th> 
+            <th>Data Nascimento</th> 
+            <th>CEP</th> 
+            <th>Logadouro </th> 
+            <th>Localidade </th> 
+            <th>Bairro </th>
+            <th>UF</th>
+            <th>Complemento </th> 
+            <th>Ações</th> 
+	    </tr>";
+
+foreach ($this->view->dados as $indice => $pessoa) {
+
+    echo "<tr> 
+		<td>" . $pessoa['nome_completo'] . " </td> 
+		<td>" . $pessoa['telefone'] . "</td>
+		<td>" . $pessoa['cpf'] . "</td> 
+		<td>" . date("d/m/Y", strtotime($pessoa['data_nascimento'])) . " </td>
+		<td>" . $pessoa['cep'] . " </td> 
+		<td>" . $pessoa['logadouro'] . " </td> 
+		<td>" . $pessoa['localidade'] . " </td>
+		<td>" . $pessoa['bairro'] . "</td>
+		<td>" . $pessoa['uf'] . " </td> 
+		<td>" . $pessoa['complemento'] . " </td> 
+		<td>
+		<button class='btn btn-primary' onclick=\"location.href='editar?id=" . $pessoa['id_pessoa'] . "'\">Editar</button>
+		<button class='btn btn-danger' onclick=\"location.href='deletar?id=" . $pessoa['id_pessoa'] . "'\">Deletar</button>
+		</td>
+	</tr>     
+	";
+}
+echo "</table> <button type='button' class='btn btn-primary mt-4' onclick=\"location.href='/cadastro'\">Cadastrar Pessoa</button> </div>
+</html>
+";
+?>
