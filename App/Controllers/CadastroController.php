@@ -2,6 +2,7 @@
 
 namespace App\Controllers;
 
+
 //os recursos do projeto
 use MF\Controller\Action;
 use MF\Model\Container;
@@ -9,6 +10,7 @@ use MF\Model\Container;
 //os models
 use App\Models\Pessoa;
 
+require "IndexController.php";
 class CadastroController extends Action
 {
     public function cadastro()
@@ -17,7 +19,9 @@ class CadastroController extends Action
 
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $pessoa->insertPessoa();
-            $this->index();
+
+            $indexController = new IndexController();
+            $indexController->index();
         }
 
         $this->render('cadastro', 'layout1');
