@@ -9,8 +9,8 @@ class Connection {
 
 			$conexao = new \PDO(
 				"mysql:host=localhost;dbname=banco_projeto;charset=utf8",
-				"root",
-				"e1l2s3d4"
+				"",
+				""
 			);
 
 			return $conexao;
